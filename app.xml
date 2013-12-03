@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<!-- Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *  
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License
+-->
+  <ModulePrefs title="Click To Talk">
+    <Require feature="rpc"/>
+    <Require feature="views"/>
+    <Require feature="locked-domain"/>
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+    
+<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+ 
+<input type=button value="Talk" id="talk" onClick="talk()"/>
+	
+<script>
+ 
+// Remember some divs for easy reference later.
+var talkButton = document.getElementById('talk');
+var currentUserID = null;
+ 
+function talk() {
+  var participants = gapi.hangout.getParticipants();
+  
+  for (var index in participants) {
+    var participant = participants[index];
+    if (participant.id !== gapi.hangout.getLocalParticipantId()) {
+      gapi.hangout.av.muteParticipantMicrophone(participant.id);
+    }
+  }
+  gapi.hangout.av.setMicrophoneMute(false);
+}
+ 
+// This runs when the gadget is ready
+function init() {
+  console.log('Init.');
+ 
+  // When API is ready...
+  gapi.hangout.onApiReady.add(
+      function(eventObj) {
+        if (eventObj.isApiReady) {
+            gapi.hangout.av.setMicrophoneMute(true);
+        }
+      });
+}
+ 
+// Wait for gadget to load.
+gadgets.util.registerOnLoadHandler(init);
+ 
+</script>
+    ]]>
+  </Content>
+</Module>
