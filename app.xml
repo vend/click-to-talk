@@ -21,6 +21,8 @@
     <![CDATA[
  
 <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+<script type="text/javascript" src="//rawgithub.com/vend/click-to-talk/master/talk.js"></script>
+
 <link href="//cdn.jsdelivr.net/foundation/5.0.2/css/foundation.css" rel="stylesheet" />
 <div id="talker-wrapper" style="margin: 150px 20px 0 20px;">
   <img id="talker-image" style="width:80px;height:80px;" />
@@ -29,8 +31,6 @@
 
 <button id="unmute" onclick="unmute()" type="button" class="failure" style="width: 100%; ">Unmute All</button>
  
-<script type="text/javascript" src="//raw.github.com/vend/click-to-talk/master/talk.js"></script>
-
     ]]>
   </Content>
 </Module>
