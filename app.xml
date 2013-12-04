@@ -29,7 +29,7 @@
 
 <button id="unmute" onclick="unmute()" type="button" class="failure" style="width: 100%; ">Unmute All</button>
  
-<script type="text/javascript" src="/talk.js"></script>
+<script type="text/javascript" src="//raw.github.com/vend/click-to-talk/master/talk.js"></script>
 
     ]]>
   </Content>
