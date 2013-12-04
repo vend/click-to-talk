@@ -20,7 +20,7 @@ function unmute() {
 
 function onStateChange(stateChangeEvent) {
   var muted = gapi.hangout.data.getValue("muted");
-  gapi.hangout.av.setMicrophoneMute(muted);
+  gapi.hangout.av.setMicrophoneMute(muted === "true");
 }
 
 function configureSession() {
@@ -28,7 +28,7 @@ function configureSession() {
   if (typeof muted === 'undefined') {
     gapi.hangout.data.setValue("muted", "true");
   } else {
-    gapi.hangout.av.setMicrophoneMute(muted);
+    gapi.hangout.av.setMicrophoneMute(muted === "true");
   }
 }
 
