@@ -5,7 +5,7 @@
  * the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
- *  
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -19,46 +19,18 @@
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
-    
+ 
 <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+<link href="//cdn.jsdelivr.net/foundation/5.0.2/css/foundation.css" rel="stylesheet" />
+<div id="talker-wrapper" style="margin: 150px 20px 0 20px;">
+  <img id="talker-image" style="width:80px;height:80px;" />
+  <button id="talk" onclick="talk()" type="button" class="success" style="width: 100%; ">Talk</button>
+</div>
+
+<button id="unmute" onclick="unmute()" type="button" class="failure" style="width: 100%; ">Unmute All</button>
  
-<input type=button value="Talk" id="talk" onClick="talk()"/>
-	
-<script>
- 
-// Remember some divs for easy reference later.
-var talkButton = document.getElementById('talk');
-var currentUserID = null;
- 
-function talk() {
-  var participants = gapi.hangout.getParticipants();
-  
-  for (var index in participants) {
-    var participant = participants[index];
-    if (participant.id !== gapi.hangout.getLocalParticipantId()) {
-      gapi.hangout.av.muteParticipantMicrophone(participant.id);
-    }
-  }
-  gapi.hangout.av.setMicrophoneMute(false);
-}
- 
-// This runs when the gadget is ready
-function init() {
-  console.log('Init.');
- 
-  // When API is ready...
-  gapi.hangout.onApiReady.add(
-      function(eventObj) {
-        if (eventObj.isApiReady) {
-            gapi.hangout.av.setMicrophoneMute(true);
-        }
-      });
-}
- 
-// Wait for gadget to load.
-gadgets.util.registerOnLoadHandler(init);
- 
-</script>
+<script type="text/javascript" src="/talk.js"></script>
+
     ]]>
   </Content>
 </Module>
