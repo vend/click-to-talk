@@ -1,5 +1,6 @@
 function talk() {
   var participants = gapi.hangout.getParticipants();
+  gapi.hangout.data.setValue("muted", "true");
 
   for (var index in participants) {
     var participant = participants[index];
