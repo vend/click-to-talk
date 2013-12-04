@@ -27,9 +27,8 @@
 <div id="talker-wrapper" style="margin: 150px 20px 0 20px;">
   <img id="talker-image" style="width:80px;height:80px;" />
   <button id="talk" onclick="talk()" type="button" class="success" style="width: 100%; ">Talk</button>
+  <button id="unmute" onclick="unmute()" type="button" class="failure" style="width: 100%; ">Unmute All</button>
 </div>
-
-<button id="unmute" onclick="unmute()" type="button" class="failure" style="width: 100%; ">Unmute All</button>
  
     ]]>
   </Content>
