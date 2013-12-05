@@ -70,7 +70,7 @@ function init() {
 
         gapi.hangout.data.onStateChanged.add(onStateChange);
 
-        document.onkeypress = onKeyPress;
+        window.onkeypress = onKeyPress;
       }
     }
   );
