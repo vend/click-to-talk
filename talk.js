@@ -50,6 +50,17 @@ function configureSession() {
   }
 }
 
+function onKeyPress(e) {
+  e = e || window.event;
+  var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
+  alert("Character typed: " + String.fromCharCode(charCode));
+  if (charCode == 116) {
+    talk();
+  } else if (charCode == 117) {
+    unmute();
+  }
+}
+
 // This runs when the gadget is ready
 function init() {
   // When API is ready...
@@ -59,6 +70,8 @@ function init() {
         configureSession();
 
         gapi.hangout.data.onStateChanged.add(onStateChange);
+
+        document.onkeypress = onKeyPress;
       }
     }
   );
