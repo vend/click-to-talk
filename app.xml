@@ -25,7 +25,7 @@
 
 <link href="//cdn.jsdelivr.net/foundation/5.0.2/css/foundation.css" rel="stylesheet" />
 <div id="talker-wrapper" style="margin: 150px 20px 0 20px;">
-  <img id="talker-image" style="width:80px;height:80px;" />
+  <img id="talker-image" style="width:80px;height:80px;display:block;margin:auto;margin-bottom:30px;" />
   <button id="talk" onclick="talk()" type="button" class="success" style="width: 100%; ">Talk (t)</button>
   <button id="unmute" onclick="unmute()" type="button" class="failure" style="width: 100%; ">Unmute All (u)</button>
 </div>
