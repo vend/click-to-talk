@@ -53,7 +53,6 @@ function configureSession() {
 function onKeyPress(e) {
   e = e || window.event;
   var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-  alert("Character typed: " + String.fromCharCode(charCode));
   if (charCode == 116) {
     talk();
   } else if (charCode == 117) {
